@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Encryption</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-color: #1a586f;
+        text-align: center;
+        color: white;
+        margin-top: 15%;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    #error {
+        color: red;
+        font-weight: bolder;
+    }
+    h4 {
+        color: #FDE46B;
+    }
+</style>
+<script src=""></script>
+
+<body>
+    <h1>Welcome to Treasure Hunt Level 1!</h1>
+    <h2>If you want to see the treasure map, decrypt this key in 3 guesses!</h2>
+    <h4>• • • _ • _ _ _ • _ _ _ • • • _ • _</h4>
+    <br>
+    <form onsubmit="checkGuess(this)">
+        <label for="guess">Take a guess:</label><br><br>
+        <input type="text" id="guess" name="guess"><br><br>
+        <input type="submit" value="Submit" >
+    </form>
+    <h3 id="error"></h3>
+    <script>
+       var wrongGuess = 0;
+       var password = "stemnova";
+        function checkGuess(form){
+            var guess = form.guess.value;
+            console.log(guess);
+            
+            if(guess == password){
+                window.location.href="index.html";
+            }
+            else {
+                wrongGuess++;
+                if(wrongGuess == 3){
+                    document.getElementById("error").innerHTML = "Sorry, you have exceeded your number of guesses!";
+                }
+            }
+            event.preventDefault();
+        }
+        
+    </script>
+</body>
+
+
+</html>

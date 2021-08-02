@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Treasure Hunt</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+    body {
+        background-image: url("images/Pirate-Treasure-Map.png");
+        background-position-y: 15%;
+        background-position-x: 50%;
+    }
+
+    #follow {
+        position: absolute;
+        text-align: center;
+    }
+
+    #follow img {
+        width: 60px;
+        height: 60px;
+    }
+
+    #treasure {
+        width: 10%;
+        margin-left: 77%;
+        margin-top: 12%;
+
+    }
+
+    #hide {
+        display: none;
+    }
+
+</style>
+
+<body>
+    <div id="follow"><img src="images/treasurehunter.png" />
+    </div>
+   <a href="level2landing.html"> <img src="images/treasure.jpeg" id="treasure" /></a>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        //teaching concept of initialization
+        $(document).bind("mousemove", function (e) {
+            $("#follow").css({
+                left: e.pageX,
+                top: e.pageY
+            });
+        });
+        var clicks = 0;
+
+        //event handlers, user interaction
+        $(document).click(function () {
+            clicks++;
+            if (clicks % 2 == 1) { //conditionals & modulus logic (can even throw in booleans)
+                $(document).unbind("mousemove");
+            }
+            else {
+                $(document).bind("mousemove", function (e) {
+                    $("#follow").css({
+                        left: e.pageX,
+                        top: e.pageY
+                    });
+                });
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
